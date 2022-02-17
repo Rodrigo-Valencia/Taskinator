@@ -1,11 +1,15 @@
-var buttonEL = document.querySelector("#save-task");
+var formEl = document.querySelector('#task-form');
 var tasksToDoEl = document.querySelector("#tasks-to-do");
 
 var createTaskHandler = function() {
+
+    Event.preventDefault();
+    var taskNameInput = document.querySelector("input[name='task-name']").value;
+
     var listItemEl = document.createElement("li");
     listItemEl.className = "task-item";
-    listItemEl.textContent = "This is a new task.";
+    listItemEl.textContent = taskNameInput;
     tasksToDoEl.appendChild(listItemEl);
 };
 
-buttonEL.addEventListener("click", createTaskHandler);
+formEl.addEventListener('sumbit', createTaskHandler);
